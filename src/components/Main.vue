@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <div class="container">
-            <Cards />
-        </div>
-    </div>
+    <main>
+        <Cards />
+    </main>
 </template>
 
 <script>
@@ -19,14 +17,14 @@ export default {
 
 <style lang="scss" scoped>
     @import '../style/variables.scss';
+    @import '../style/mixins.scss';
 
-    div {
-        height: calc(100% - #{$headerHeight});
-        width: 100%;
+    main {
+        @include flex-center('both');
+        
+        width: 100%;        
+        min-height: calc(100% - #{$headerHeight});
+        padding-top: 50px;
         background-color: $mainColor;
-
-        div {
-            padding: 50px 0;
-        }
     }
 </style>
