@@ -32,6 +32,7 @@ export default {
         width: 200px;
         padding: $cardMargin;
         margin-bottom: $cardMargin;
+        margin-right: $cardMargin;
         background-color: $secondColor;
         text-align: center;        
 

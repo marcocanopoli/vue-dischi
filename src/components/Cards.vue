@@ -1,10 +1,15 @@
 <template>
     <div class="main-wrapper">
-        <div class="container">
-            <Filters @selectFilter="getSelected"
-                    :genres="getGenres"
-                    :artists="getArtists"/>
+        <div class="container">            
             <div class="cards" v-if="loaded">
+                <div class="filters">
+                    <Select @selectFilter="getSelected"
+                        :filters="getArtists"
+                        :filter-name="'artista'"/>
+                    <Select @selectFilter="getSelected"
+                        :filters="getGenres"
+                        :filter-name="'genere'"/>
+                </div>
                 <Card   v-for="(album, index) in filteredAlbums" :key="index"
                     :title="album.title"
                     :author="album.author"
@@ -19,7 +24,7 @@
 <script>
 import Card from './Card.vue';
 import Loader from './Loader.vue';
-import Filters from './Filters.vue';
+import Select from './Select.vue';
 import axios from 'axios' ;
 
 export default {
@@ -27,7 +32,7 @@ export default {
     components: {
         Card,
         Loader,
-        Filters
+        Select
     },
     data() {
         return {
@@ -87,16 +92,19 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+    @import '../style/mixins.scss';
 
-    .main-wrapper {
-        text-align: right;
-
-        .cards {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            width: 100%; 
-        }
+    .filters {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .cards {
+        @include flex-center ('horizontal');
+        flex-wrap: wrap;
+        width: 100%; 
     }
 </style>
