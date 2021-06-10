@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main>        
         <Cards />
     </main>
 </template>
