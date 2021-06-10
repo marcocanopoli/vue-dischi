@@ -12,7 +12,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @import '../style/mixins.scss';
+
     div {
+        @include absolute-center;
         text-align: center;
 
         img {

@@ -20,8 +20,7 @@ export default {
     @import '../style/mixins.scss';
 
     main {
-        @include flex-center('both');
-        
+        position: relative;
         width: 100%;        
         min-height: calc(100% - #{$headerHeight});
         padding-top: 50px;

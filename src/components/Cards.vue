@@ -1,7 +1,7 @@
 <template>
     <div class="main-wrapper">
         <div class="container">
-            <Select @selectFilter="getSelected"
+            <Filters @selectFilter="getSelected"
                     :genres="getGenres"
                     :artists="getArtists"/>
             <div class="cards" v-if="loaded">
@@ -19,7 +19,7 @@
 <script>
 import Card from './Card.vue';
 import Loader from './Loader.vue';
-import Select from './Select.vue';
+import Filters from './Filters.vue';
 import axios from 'axios' ;
 
 export default {
@@ -27,7 +27,7 @@ export default {
     components: {
         Card,
         Loader,
-        Select
+        Filters
     },
     data() {
         return {
@@ -68,7 +68,7 @@ export default {
             let filtered = [];
             if (this.filter == '') {
                 filtered = this.albums;
-            } else if (this.genres.includes(this.filter)){
+            } else if (this.genres.includes(this.filter) ){
                 filtered = this.albums.filter((album) => album.genre == this.filter);
             } else if (this.artists.includes(this.filter)){
                 filtered = this.albums.filter((album) => album.author == this.filter);

@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'Select',
+    name: 'Filters',
     props: {
         genres: Array,
         artists: Array
@@ -28,13 +28,25 @@ export default {
 <style lang="scss" scoped>
     @import '../style/variables.scss';
 
-    select{          
-        width: 200px;      
-        padding: 5px;
-        margin-bottom: 25px;
-        font-size: 16px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        color: $mainColor;
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        select{          
+            width: 200px;      
+            padding: 5px;            
+            font-size: 16px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: $mainColor;
+
+            &:last-child {
+                margin-bottom: 25px;
+            }
+        }
+
+
     }
 </style>
